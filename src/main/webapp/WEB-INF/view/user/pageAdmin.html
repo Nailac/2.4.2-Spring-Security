@@ -14,15 +14,19 @@
             <th>Edit</th>
             <th>Delete</th>
         </tr>
-        <tr th:each="user : ${user}">
+        <tr th:each="user : ${listUser}">
             <td th:text="${user.getName()}"></td>
             <td th:text="${user.getSurname()}"></td>
             <td th:text="${user.getAge()}"></td>
-            <td><a th:href="@{/users/edit/{id}(id=${user.getId()})}">Edit user</a></td>
-            <td><a th:href="@{/users/delete/{id}(id=${user.getId()})}">Delete user</a></td>
+            <td><a th:href="@{user/edit/{id}(id=${user.getId()})}">Edit user</a></td>
+            <td><a th:href="@{/user/delete/{id}(id=${user.getId()})}">Delete user</a></td>
         </tr>
     </table>
     <br/>
-    <a th:href="@{/users/new_user}">New user</a>
+    <a th:href="@{/user/new_user}">New user</a>
+    </br>
+    <a th:href="@{/user/}">Information of user</a>
+    </br>
+    <a th:href="@{/logout}">Logout</a>
 </body>
 </html>

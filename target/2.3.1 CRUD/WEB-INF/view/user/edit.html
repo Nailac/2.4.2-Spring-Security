@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Update user</h1>
-<form th:method="POST" th:action="@{/users/edit/{id}(id=${user.getId()})}" th:object="${user}">
+<form th:method="post" th:action="@{/user/edit/{id}(id=${user.getId()})}" th:object="${user}">
     <label for="name">Enter name</label>
     <input type="text" th:field="*{name}" id="name"/>
     <br/>
@@ -16,7 +16,11 @@
     <label for="age">Enter age</label>
     <input type="text" th:field="*{age}" id="age"/>
     <br/>
+    <input type="checkbox" name="rolesMas" value="ROLE_USER" th:checked="${#lists.contains(roles, 'ROLE_USER')}"/>USER
+    <input type="checkbox" name="rolesMas" value="ROLE_ADMIN" th:checked="${#lists.contains(roles, 'ROLE_ADMIN')}"/>ADMIN
+    </br>
     <input type="submit" value="Update user"/>
 </form>
+<a th:href="@{/logout}">Logout</a>
 </body>
 </html>

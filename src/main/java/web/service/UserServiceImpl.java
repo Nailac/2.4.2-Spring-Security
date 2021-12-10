@@ -19,25 +19,29 @@ public class UserServiceImpl implements UserService{
         this.userDAO = userDAO;
     }
 
-    @Transactional
+    @Override
+    public User getUserByName(String name) {
+        return userDAO.getUserByName(name);
+    }
+
+
     @Override
     public List<User> getUsers() {
         return userDAO.getUsers();
     }
 
-    @Transactional
+
     @Override
-    public User find(long id) {
-        return userDAO.find(id);
+    public User getById(long id) {
+        return userDAO.getById(id);
     }
 
-    @Transactional
+
     @Override
     public void save(User user) {
         userDAO.save(user);
     }
 
-    @Transactional
     @Override
     public void update(User user) {
         userDAO.update(user);
